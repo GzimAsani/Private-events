@@ -1,6 +1,7 @@
 class EventsController  < ApplicationController
   @event = Event.new
 
+  before_action :authorization
 
   def new
     @event = Event.new
@@ -20,7 +21,9 @@ class EventsController  < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = Event.paginate(page: params[:page], per_page: 5)
+    @past_events = Event.past.paginate(page: params[:page], per_page: 5)
+    @upcoming_events = Event.upcoming.paginate(page: params[:page], per_page: 5)
   end
 
   private

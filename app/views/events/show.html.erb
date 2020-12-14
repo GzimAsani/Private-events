@@ -1,5 +1,8 @@
 <%= @event.title%> <br>
 <%=@event.description%> <br>
-<p> Created by: <%=link_to  @event.creator.username, class: 'text-danger'%> 
-<%= time_ago_in_words(@event.created_at)%> ago </p>
+<p> Created by: <%=link_to  @event.creator.username, class: 'text-danger'%>, Will take  place in
+<%= time_ago_in_words(@event.date)%> </p>
+</p>
+<p class='text-danger'>
+ Number of atendees: <%= @event.attendees.count%>
 </p>

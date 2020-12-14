@@ -6,4 +6,9 @@ module ApplicationHelper
   def logged_in?
     !!current_user
   end
+
+  def authorization
+    redirect_to login_path unless logged_in?
+  end
+  
 end

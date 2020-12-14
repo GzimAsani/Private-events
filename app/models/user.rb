@@ -9,4 +9,6 @@ class User < ApplicationRecord
                       format: { with: VALID_EMAIL_REGEX }
   has_secure_password
   has_many :events, dependent: :destroy
+  has_many :attendances, dependent: :destroy
+  has_many :attended_events, class_name: 'Event', foreign_key: 'event_id', through: :attendances
 end

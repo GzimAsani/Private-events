@@ -1,11 +1,15 @@
-
+<div class="flickr_pagination">
+<%= will_paginate @articles, :container => false %>
 <% @events.each do |event, msg|%>
   <p class = 'text-danger'>
-  <%= link_to event.creator.username, user_path(event)%> <br>
-  <%=link_to event.title, event_path(event) %> <br> 
-  <%=link_to event.description, event_path(event) %> <br>Created
-  <%= time_ago_in_words(event.created_at)%> ago
+  Creator: <%= link_to event.creator.username, user_path(event)%> <br>
+  Event Title: <%=link_to event.title, event_path(event) %> <br> 
+  Event Description: <%=link_to event.description, event_path(event) %> <br>Will be held in
+  | <%= event.date.day %> |
+  <%= event.date.month%> |
+  <%= event.date.year%> |
     </p>
 
 
 <% end%>
+</div>

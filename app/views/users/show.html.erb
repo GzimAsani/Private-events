@@ -1,11 +1,53 @@
 <h1> <%= @user.username %> </h1>
 <h1> <%= @user.email %> </h1>
 <p> Total events created <%= @user.events.count %>
-<% @user.events.each do |event, msg|%>
-  <p class = 'text-danger'><%=link_to event.title, event_path(event) %> /<small>Created
-  <%= time_ago_in_words(event.created_at)%> ago</small>
-  </p>
- 
 
+<h1>Hosted events:</h1>
+
+<% @user.events.each do |event, msg|%>
+  <p class = 'text-danger'><%=link_to event.title, event_path(event) %>  Will be held on 
+  |<%= event.date.day %>|
+  <%= event.date.month%>| 
+  <%= event.date.year%>| 
+  </p>
+  
 <% end%>
 
+
+
+
+<h4>upcoming Events:<%= current_user.attended_events.where('date>?', Time.now).count %></h4>
+<%= current_user.attended_events.where('date>?', Time.now).count %>
+  <% current_user.attended_events.where('date>?', Time.now).each do |event| %>
+    <%= link_to event_path(event) do %>
+      <p>Event Description:- <%= event.description %></p>
+      <p>Event Date:- <%= event.date %></p>
+      <% user_attending?(event.id).each do |button| %>
+        <%= button %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
+ <h3 class="subtitle is-3">Upcoming Events: <%= current_user.attended_events.where('date >= ?', Time.now).count %></h3>
+<ul>
+  <% if current_user.attended_events.where('date >= ?', Time.now).count.zero? %>
+    <p>No planned parties</p>
+  <% else %>
+    <% current_user.attended_events.where('date >= ?', Time.now).each do |event| %>
+      <li class="has-text-centered"><%=link_to event.name, event_path(event) %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h3 class="subtitle is-3 has-text-centered">Attended Events: <%= current_user.attended_events.where('date < ?', Time.now).count %></h3>
+  <ul>
+    <% if current_user.attended_events.empty? %>
+      <p>User is not partying</p>
+    <% else %>
+      <% current_user.attended_events.where('date < ?', Time.now).each do |event| %>
+        <li class="has-text-centered"><%=link_to event.name, event_path(event) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+ 
