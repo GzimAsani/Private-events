@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @article.events = User.first
+  
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to the Alpha Blog #{@user.username}, you have successfully signed up"
