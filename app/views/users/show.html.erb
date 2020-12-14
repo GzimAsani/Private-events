@@ -1,4 +1,9 @@
 <h1> <%= @user.username %> </h1>
 <h1> <%= @user.email %> </h1>
+<p> Total events created <%= @user.events.count %>
+<% @user.events.each do |event, msg|%>
+  <p class = 'text-danger'><%=link_to event.title, event_path(event) %> </p>
+  <%=%>
 
-<h4 <%= @user.events %>>
+<% end%>
+

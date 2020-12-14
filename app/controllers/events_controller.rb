@@ -10,4 +10,14 @@ class EventsController  < ApplicationController
   def create
   end
 
+  def index
+    @events = Event.all
+  end
+
+  private
+
+  def events_params
+    params.require(:event).permit(:name, :date, :location, :description, :user_id)
+  end   
+
 end

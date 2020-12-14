@@ -1,1 +1,4 @@
-<h1> <%= @event.title%> </h1>
+<%=@event.creator.username%> <br>
+<%= @event.title%> <br>
+<%=@event.description%> <br>
+<p> <%= time_ago_in_words(@event.created_at)%> ago </p>

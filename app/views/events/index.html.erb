@@ -1,0 +1,9 @@
+
+<% @events.each do |event, msg|%>
+  <p class = 'text-danger'><%=link_to event.title, event_path(event) %> <br> 
+  <%=link_to event.description, event_path(event) %> <br>
+  <%= link_to event.date, event_path(event) %> 
+    </p>
+
+
+<% end%>
