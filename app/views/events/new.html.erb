@@ -1,34 +1,35 @@
-<div class="container mt-4">
-  <div class="row justify-content-center">
-    <div class="col-10">
-      <%= render 'shared/errors', obj: @event %>
-      <%= form_with(model: @event, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
-        
-        <div class="form-group row">
-          <%= f.label :event_title, class: "col-2 col-form-label text-light" %>
-          <div class="col-10">
-            <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Title" %>
-          </div>
-        </div>
+<div class="container2 my-4 light-red p-3">
 
-        <div class="form-group row">
-          <%= f.label :description, class: "col-2 col-form-label text-light" %>
-          <div class="col-10"> 
-            <%= f.text_field :description, class: "form-control shadow rounded", placeholder: "Description" %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <%= f.label :creation_Date, class: "col-2 col-form-label text-light" %>
-          <div class="col-10">
-            <%= f.date_field :date, class:"form-control datepicker shadow rounded"%>
-          </div>
-        </div>
-        <div class="actions form-group row justify-content-center">
-          <%= f.submit "Submit", class: "btn btn-outline-light btn-lg" %>
-        </div>
-      <% end %>
+<%= form_for(@event, local: true) do |form| %>
+<div class="text-white">
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% @event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
-    <div class="mb-3">
-    </div>
+  <% end %>
+</div>
+
+  <div class="field">
+    <%= form.text_field :title, class:"d-block w-100 mb-3 pl-2 input border",placeholder:"Name of the event" %>
   </div>
-</div> 
+
+  <div class="field">
+    <%= form.text_area :description, class:"d-block w-100 mb-3 pl-2 border",placeholder:"Enter event description",rows:"8" %>
+  </div>
+
+
+  <div class="field mb-3">
+    <%= form.date_field :date, class:"form-control datepicker w-50 text-danger border-1 border-danger"%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Submit",class:"btn btn-warning btn-block rounded-0 py-2" %>
+  </div>
+<% end %>
+</div>

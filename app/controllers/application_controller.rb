@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-
-  helper_method :current_user, :logged_in?, :authorization, :events_attendance, :events_created
+  helper_method :current_user, :logged_in?, :events_attendance, :events_created
 
   def current_user
     if session[:user_id]
@@ -11,11 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !!current_user
+    !current_user.nil?
   end
 
   def authorization
-    redirect_to login_path unless logged_in?
+    redirect_to login_path laert: 'Sign in' unless logged_in?
   end
 
   def events_attendance

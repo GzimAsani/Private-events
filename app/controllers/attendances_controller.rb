@@ -3,7 +3,7 @@ class AttendancesController < ApplicationController
     @attend = Attendance.new
     @attend.user_id = current_user.id
     @attend.event_id = params[:event_id]
-    redirect_to current_user, notice: 'Event added to attending list' 
+    redirect_to current_user, notice: 'Event added to attending list' if @attend.valid? && @attend.save
   end
 
   def destroy
