@@ -8,14 +8,14 @@ class SessionsController < ApplicationController
       flash[:success] = 'You have successfully Logged in!'
       redirect_to events_path
     else
-      flash[:error] = 'Invalid email/password combination'
+      flash[:error] = 'Invalid email or password'
       render 'new'
     end
   end
 
   def destroy
     session[:user_id] = nil
-    flash[:success] = 'You logged out'
+    flash[:success] = 'Logged out'
     redirect_to root_path
   end
 
