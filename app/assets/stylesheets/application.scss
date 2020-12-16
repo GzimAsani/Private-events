@@ -23,6 +23,9 @@ body {
 .flickr_pagination a {
   padding: 0.2em 0.5em;
   border-radius: 5px;
+  border: 1px solid whitesmoke;
+  color: whitesmoke;
+  text-decoration: none;
 }
 
 .flickr_pagination span {
@@ -45,12 +48,6 @@ body {
   color: #ff0084;
 }
 
-.flickr_pagination a {
-  border: 1px solid whitesmoke;
-  color: whitesmoke;
-  text-decoration: none;
-}
-
 .flickr_pagination a:hover {
   border-color: grey;
   background: whitesmoke;
@@ -70,16 +67,10 @@ body {
 
 .flickr_pagination .previous_page {
   border-width: 2px;
-}
-
-.flickr_pagination .next_page {
-  border-width: 2px;
-}
-
-.flickr_pagination .previous_page {
   margin-right: 1em;
 }
 
 .flickr_pagination .next_page {
+  border-width: 2px;
   margin-left: 1em;
 }
