@@ -16,5 +16,4 @@ class ApplicationController < ActionController::Base
   def authorization
     redirect_to login_path alert: 'Sign in' unless logged_in?
   end
-
 end
