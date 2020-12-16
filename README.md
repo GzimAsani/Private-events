@@ -2,7 +2,7 @@
 
 > This project is part of Microverse Ruby on Rails project which allows users to create events and join other users events but it is required for the to first sign up and log in, in order to see the events and attend them
 
-![screenshot](./app/assets/images/screen.png)
+![screenshot](./app/assets/images/screen1.png)
 ![screenshot](./app/assets/images/screen2.png)
 ![screenshot](./app/assets/images/screen3.png)
 
