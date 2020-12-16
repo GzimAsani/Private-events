@@ -20,13 +20,13 @@ module ApplicationHelper
   def user_attending?(event_id)
     buttons = []
     if events_created.find_by(id: :event_id)
-      buttons.push(link_to('Register',
+      buttons.push(link_to('Enroll',
                            attendances_path(controller: 'attendances', action: 'create',
                                             event_id: event_id), method: :post, class: 'btn btn-success'))
       buttons.push(link_to('cancel', attendance_path(event_id), method: :delete,
                                                                 class: 'btn btn-danger mt-1'))
     else
-      buttons.push(link_to('Register',
+      buttons.push(link_to('Enroll',
                            attendances_path(controller: 'invites', action: 'create',
                                             event_id: event_id), method: :post, class: 'btn btn-success'))
       buttons.push(link_to('Cancel', attendance_path(event_id), method: :delete,
