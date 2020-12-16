@@ -5,9 +5,9 @@
       <div class = 'col-8 mt-4'>
         <div class="card text-center shadow mb-5 bg-info rounded">
           <div>
-           <h4 class="p-2 w-50 mx-auto mb-2 text-center text-white"> Events you created: <%= events_created.count%></h4>
+           <h4 class="p-2 w-50 mx-auto mb-2 text-center text-white"> Events you created: <%= current_user.events.count%></h4>
           </div>
-          <% events_created.order('created_at DESC').each do |event|%>
+          <% current_user.events.order('created_at DESC').each do |event|%>
             <div class="col-sm-12">
               <%= link_to event_path(event), class:'text-decoration-none' do%>
                 <div class="card light-red mb-4 text-center">
@@ -22,8 +22,8 @@
            </div>
           <%end%>
 
-          <h4 class="p-2 w-50 mx-auto mb-2 text-center text-white">Upcoming Events: <%= events_attendance.where('date>?', Time.now).count%></h4>
-          <% events_attendance.where('date>?', Time.now).each do |event|%>
+          <h4 class="p-2 w-50 mx-auto mb-2 text-center text-white">Upcoming Events: <%= current_user.attended_events.where('date>?', Time.now).count%></h4>
+          <% current_user.attended_events.where('date>?', Time.now).each do |event|%>
             <div class="col-sm-12">
               <%= link_to event_path(event), class:'text-decoration-none' do%>
                 <div class="card light-red mb-4 text-center">
@@ -38,8 +38,8 @@
            </div>
           <%end%>
 
-          <h4 class="p-2 w-50 mx-auto mb-2 text-center text-white">Previously attended: <%= events_attendance.where('date<?', Time.now).count%></h4>
-          <% events_attendance.where('date<?', Time.now).each do |event|%>
+          <h4 class="p-2 w-50 mx-auto mb-2 text-center text-white">Previously attended: <%= current_user.attended_events.where('date<?', Time.now).count%></h4>
+          <% current_user.attended_events.where('date<?', Time.now).each do |event|%>
             <div class="col-sm-12">
               <%= link_to event_path(event), class:'text-decoration-none' do%>
                 <div class="card light-red mb-4 text-center">

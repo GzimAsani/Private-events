@@ -14,16 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorization
-    redirect_to login_path laert: 'Sign in' unless logged_in?
+    redirect_to login_path alert: 'Sign in' unless logged_in?
   end
 
-  def events_created
-    current_user.events
-  end
-  
-  def events_attendance
-    current_user.attended_events
-  end
-
-  
 end
