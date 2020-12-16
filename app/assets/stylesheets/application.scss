@@ -20,8 +20,10 @@ body {
   cursor: default;
 }
 
-.flickr_pagination a, 
-.flickr_pagination span, 
+.flickr_pagination a,
+
+.flickr_pagination span,
+
 .flickr_pagination em {
   padding: 0.2em 0.5em;
   border-radius: 5px;
@@ -43,7 +45,8 @@ body {
   text-decoration: none;
 }
 
-.flickr_pagination a:hover, 
+.flickr_pagination a:hover,
+
 .flickr_pagination a:focus {
   border-color: grey;
   background: whitesmoke;
@@ -55,7 +58,8 @@ body {
   padding-top: 0.8em;
 }
 
-.flickr_pagination .previous_page, 
+.flickr_pagination .previous_page,
+
 .flickr_pagination .next_page {
   border-width: 2px;
 }
