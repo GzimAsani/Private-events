@@ -17,11 +17,11 @@ class ApplicationController < ActionController::Base
     redirect_to login_path alert: 'Sign in' unless logged_in?
   end
 
-  def created_events
+  def events_created
     current_user.events
   end
 
-  def attended_events
+  def events_attendance
     current_user.attended_events
   end
 end
