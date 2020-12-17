@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+@import "bootstrap/scss/bootstrap";
+
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: lightgray;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Pagination styling */
+.flickr_pagination {
+  text-align: center;
+  padding: 0.3em;
+  cursor: default;
+}
+
+.flickr_pagination a {
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.flickr_pagination span {
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+}
+
+.flickr_pagination em {
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+}
+
+.flickr_pagination .disabled {
+  color: #aaa;
+}
+
+.flickr_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  color: #ff0084;
+}
+
+.flickr_pagination a:hover {
+  border-color: grey;
+  background: whitesmoke;
+  color: grey;
+}
+
+.flickr_pagination a:focus {
+  border-color: grey;
+  background: whitesmoke;
+  color: grey;
+}
+
+.flickr_pagination .page_info {
+  color: #aaa;
+  padding-top: 0.8em;
+}
+
+.flickr_pagination .previous_page {
+  border-width: 2px;
+  margin-right: 1em;
+}
+
+.flickr_pagination .next_page {
+  border-width: 2px;
+  margin-left: 1em;
+}
